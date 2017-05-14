@@ -1,5 +1,7 @@
-package com.coding.basic;
+package com.coding.basic.tree;
 
+/*------------------------------------------------------------------*/
+/*
 public class BinaryTree {
 	private BinaryTreeNode root;
 	
@@ -38,3 +40,4 @@ public class BinaryTree {
 	}
 	
 }
+*/
