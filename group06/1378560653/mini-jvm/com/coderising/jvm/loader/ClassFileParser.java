@@ -78,7 +78,7 @@ public class ClassFileParser {
 		System.out.println("fieldCount:" + fieldCount);
 		
 		for(int i = 1; i <= fieldCount; i++){
-			Field field = Field.parse(clzFile, iter);
+			Field field = Field.parse(clzFile.getConstantPool(), iter);
 			clzFile.addField(field);
 		}
 		
