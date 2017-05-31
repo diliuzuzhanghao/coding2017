@@ -167,6 +167,7 @@ public class ArrayUtil {
 	 * @param max
 	 * @return
 	 */
+	/*V1.0
 	public int[] getPrimes(int max){
 		if(max < 3){
 			return new int[0];
@@ -204,7 +205,39 @@ public class ArrayUtil {
 		}
 		return isPrime;
 	}
+	*/
+	/*
+	 * V2.0
+	 * getPrimes()方法负责高层策略，避免陷入具体细节
+	 * isPrime()方法专注判断一个数是否为素数，潜在的复用
+	 */
+	public static int[] getPrimes(int max) {
+		if(max <= 2) {
+			return new int[0];
+		}
+		
+		int[] primes = new int[max];
+		int count = 1;
+		primes[0] = 2;
+		
+		for(int num = 3; num < max; num++){
+			if(isPrime(num)){
+				primes[count++] = num;
+			}
+		}
+		
+		return Arrays.copyOf(primes, count);
+	}
 	
+	private static boolean isPrime(int num) {
+		for(int i = 2; i < num/2+1; i++ ){
+			if(num % i == 0){
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/**
 	 * 所谓“完数”， 是指这个数恰好等于它的因子之和，例如6=1+2+3
 	 * 给定一个最大值max， 返回一个数组， 数组中是小于max 的所有完数
